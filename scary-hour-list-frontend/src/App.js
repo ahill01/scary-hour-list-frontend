@@ -7,7 +7,6 @@ import NewTaskForm from "./components/NewTaskForm"
 import Scoreboard from "./components/Scoreboard"
 import Timer from "./components/Timer"
 import TaskListContainer from "./components/TaskListContainer";
-import NewUserForm from "./components/NewUserForm";
 
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
     <NewTaskForm/>
     <Timer></Timer>
     <TaskListContainer currentUser={currentUser}/>
-    <NewTaskForm/>
     <NewUserForm/>
     <Scoreboard/>
     </div>

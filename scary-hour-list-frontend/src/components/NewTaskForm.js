@@ -18,17 +18,13 @@ function NewTaskForm({handleFrontEnd}) {
         setScariness(event.target.value);
     }
 
-    function handleCreatedTime(event) {
-        setCreatedTime(event.target.value);
-    }
-
     function handleSubmit(event) {
         event.preventDefault();
         const newTask = {
             taskName: taskName,
             estimatedTime: estimatedTime,
             scariness: scariness,
-            createdTime: createdTime,
+            createdTime: Date.now()
         };
 
         fetch("http://localhost:9292/tasks", {
@@ -46,10 +42,10 @@ function NewTaskForm({handleFrontEnd}) {
     return (
         <form className="NewTaskForm" onSubmit={handleSubmit}>
             <h2>New Task</h2>
-            <input onChange={handleTaskName} type="text">Task Name</input>
+            {/* <input onChange={handleTaskName} type="text">Task Name</input>
             <input onChange={handleEstimatedTime} type="number">Estimated Time</input>
             <input onChange={handleScariness} type="text">Scariness</input>
-            <input onChange={handleCreatedTime} type="number">Created Time</input>
+            <input onChange={handleCreatedTime} type="number">Created Time</input> */}
         </form>
     );
 }
