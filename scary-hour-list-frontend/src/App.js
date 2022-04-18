@@ -2,10 +2,13 @@ import React, {useState, useEffect} from "react"
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
+import NewUserForm from './components/NewUserForm'
 import NewTaskForm from "./components/NewTaskForm"
 import Scoreboard from "./components/Scoreboard"
 import Timer from "./components/Timer"
 import TaskListContainer from "./components/TaskListContainer";
+import NewUserForm from "./components/NewUserForm";
+
 
 function App() {
   const [users, setUsers] = useState([])
@@ -25,6 +28,8 @@ function App() {
     <NewTaskForm/>
     <Timer></Timer>
     <TaskListContainer currentUser={currentUser}/>
+    <NewTaskForm/>
+    <NewUserForm/>
     <Scoreboard/>
     </div>
   );
