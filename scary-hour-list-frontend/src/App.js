@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from `./Header`
-import NewTaskForm from "./NewTaskForm"
-import Scoreboard from "./Scoreboard"
-import Timer from "./Timer"
-import TaskListContainer from './components/TaskListContainer';
+import Header from './components/Header'
+import NewTaskForm from "./components/NewTaskForm"
+import Scoreboard from "./components/Scoreboard"
+import Timer from "./components/Timer"
+import TaskListContainer from "./components/TaskListContainer";
 
 function App() {
   return (
