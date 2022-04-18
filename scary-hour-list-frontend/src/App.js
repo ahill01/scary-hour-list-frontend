@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
+import NewUserForm from './components/NewUserForm'
 import NewTaskForm from "./components/NewTaskForm"
 import Scoreboard from "./components/Scoreboard"
 import Timer from "./components/Timer"
@@ -10,8 +11,11 @@ function App() {
   return (
     <div className="App">
     <Header/>
+    <NewUserForm/>
+    <NewTaskForm/>
     <Timer></Timer>
     <TaskListContainer/>
+    <Scoreboard/>
     </div>
   );
 }
