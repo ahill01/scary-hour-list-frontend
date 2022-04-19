@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  font-family: 'Averia Serif Libre', fantasy;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #282c34;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0px 20px;
+}
+
+.NewTaskForm {
+  font-family: 'Averia Serif Libre', fantasy;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.NewUserForm {
+  font-family: 'Averia Serif Libre', fantasy;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

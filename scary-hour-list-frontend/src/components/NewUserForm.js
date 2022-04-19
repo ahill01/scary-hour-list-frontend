@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-function NewUserForm({handleFrontEnd}) {
+function NewUserForm({onAddUser}) {
   const [userName, setUserName] = useState("");
 
   function handleUserName(event) {
-    setUserName(event.target.value);
+    setUserName(event.target.value)};
 
   function handleSubmit(event) {
     event.preventDefault();
     const newUser = {
-      userName: userName,
+      name: userName,
     };
 
     fetch("http://localhost:9292/users", {
@@ -21,15 +21,16 @@ function NewUserForm({handleFrontEnd}) {
       body: JSON.stringify(newUser),
     })
       .then((res) => res.json())
-      .then((newUser) => handleFrontEnd(newUser));
+      .then((newUser) => onAddUser(newUser));
   }
-
+  
   return (
     <form className="NewUserForm" onSubmit={handleSubmit}>
       <h2>New User</h2>
-      <input onChange={handleUserName} type="text">User Name</input>
+      <input onChange={handleUserName} type="text" placeholder="user name"/>
+      <button type="submit">Add New User</button>
     </form>
   );
-}}
+}
 
 export default NewUserForm;
