@@ -11,8 +11,9 @@ import TaskListContainer from "./components/TaskListContainer";
 
 function App() {
   const [users, setUsers] = useState([])
-  const [currentUser, setCurrentUser] = useState({})
-  
+  const [currentUser, setCurrentUser] = useState({tasks:[]})
+  const [tasks, setTasks] = useState([])
+
   useEffect(() => {
     fetch("http://localhost:9292/users")
     .then(res => res.json())
@@ -21,12 +22,16 @@ function App() {
       setCurrentUser(usersArr[0])})
   },[])
 
+  useEffect(() => {
+      setTasks(currentUser.tasks)
+  }, [currentUser])
+
   return (
     <div className="App">
     <Header/>
     <NewTaskForm/>
     <Timer></Timer>
-    <TaskListContainer currentUser={currentUser}/>
+    <TaskListContainer currentUser={currentUser} tasks={tasks}/>
     <NewUserForm/>
     <Scoreboard/>
     </div>

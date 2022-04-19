@@ -1,13 +1,15 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import TaskListItem from "./TaskListItem"
-function TaskListContainer({currentUser}){
+function TaskListContainer({currentUser, tasks}){
 
-//    const listItems = currentUser.tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name}/>)
-const testArr = [{a:1},{a:2}]
+
+
     return (
-        <div>
-        {console.log(currentUser.tasks)}
-        </div>)
+        <div className="taskList">
+             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name}/>)}
+             {console.log(tasks)}
+        </div>
+    )
     
 }
 
