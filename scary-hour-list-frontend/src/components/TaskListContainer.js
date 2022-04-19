@@ -6,9 +6,18 @@ function TaskListContainer({currentUser, tasks}){
 
     return (
         <div className="taskList">
-            <tr></tr>
+           <table className="taskTable">
+            <thead>
+            <tr>
+                <th> Task </th>
+                <th> Estimated Time </th>
+                <th> Scariness </th>
+            </tr>
+           </thead>
+            <tbody>
              {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} />)}
-             {console.log(tasks)}
+             </tbody>
+             </table>
         </div>
     )
 }

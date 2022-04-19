@@ -12,17 +12,17 @@ let num = 0;
 //     return num;
 // };
 // }
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setTimeLeft(calculateTimeLeft());
-  }, 1000);
-});
+// useEffect(() => {
+//   const timer = setTimeout(() => {
+//     setTimeLeft(calculateTimeLeft());
+//   }, 1000);
+// });
 
 // setInterval(count,1000);
 
     return(
         <div className="counter">
-           <button onCLick={setPaused(paused => !paused)}>{paused ? "paused" : `${num}`}</button>
+           {/* <button onCLick={setPaused(paused => !paused)}>{paused ? "paused" : `${num}`}</button> */}
         </div>
     )
 }

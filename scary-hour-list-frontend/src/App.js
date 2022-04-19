@@ -38,10 +38,10 @@ function App() {
   return (
     <div className="App">
     <Header/>
-    <Timer></Timer>
-    <TaskListContainer currentUser={currentUser} tasks={tasks}/>
     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
     <NewUserForm onAddUser={onAddUser}/>
+    <Timer></Timer>
+    <TaskListContainer currentUser={currentUser} tasks={tasks}/>
     <Scoreboard/>
     </div>
   );
