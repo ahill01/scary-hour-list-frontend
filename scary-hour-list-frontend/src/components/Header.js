@@ -5,7 +5,7 @@ function Header() {
     <div className="header">
       <h1>
         SCARY HOUR
-        <span className="logo">😨</span>
+        <span className="logo"> 😨</span>
       </h1>
     </div>
   );

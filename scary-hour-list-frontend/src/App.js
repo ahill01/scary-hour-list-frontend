@@ -7,8 +7,6 @@ import NewTaskForm from "./components/NewTaskForm"
 import Scoreboard from "./components/Scoreboard"
 import Timer from "./components/Timer"
 import TaskListContainer from "./components/TaskListContainer";
-import NewUserForm from "./components/NewUserForm";
-
 
 function App() {
   const [users, setUsers] = useState([])
@@ -22,14 +20,24 @@ function App() {
       setCurrentUser(usersArr[0])})
   },[])
 
+  function onAddTask(){
+    fetch(`http://localhost:9292/users/${currentUser.id}`)
+    .then(res => res.json())
+    .then(user => setCurrentUser(user))
+  }
+
+  function onAddUser(newUser){ 
+      setUsers([...users, newUser])
+      setCurrentUser(newUser)
+  }
+
   return (
     <div className="App">
     <Header/>
-    <NewTaskForm/>
     <Timer></Timer>
     <TaskListContainer currentUser={currentUser}/>
-    <NewTaskForm/>
-    <NewUserForm/>
+    <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
+    <NewUserForm onAddUser={onAddUser}/>
     <Scoreboard/>
     </div>
   );
