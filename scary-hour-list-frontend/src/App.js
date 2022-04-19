@@ -31,8 +31,13 @@ function App() {
   }
 
   function onAddUser(newUser){ 
+    fetch(`http://localhost:9292/users/${newUser.id}`)
+    .then(res => res.json())
+    .then((newUser) => {
       setUsers([...users, newUser])
       setCurrentUser(newUser)
+      setTasks(newUser.tasks)
+    })
   }
 
   return (

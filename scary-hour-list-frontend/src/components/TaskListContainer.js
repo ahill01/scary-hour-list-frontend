@@ -20,6 +20,7 @@ function TaskListContainer({currentUser, tasks}){
              </table>
         </div>
     )
+    
 }
 
 export default TaskListContainer
