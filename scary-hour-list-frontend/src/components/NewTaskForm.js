@@ -42,10 +42,9 @@ function NewTaskForm({handleFrontEnd}) {
     return (
         <form className="NewTaskForm" onSubmit={handleSubmit}>
             <h2>New Task</h2>
-            {/* <input onChange={handleTaskName} type="text">Task Name</input>
-            <input onChange={handleEstimatedTime} type="number">Estimated Time</input>
-            <input onChange={handleScariness} type="text">Scariness</input>
-            <input onChange={handleCreatedTime} type="number">Created Time</input> */}
+            <input onChange={handleTaskName} type="text"/>
+            {/* <input onChange={handleEstimatedTime} type="number">Estimated Time</input>
+            <input onChange={handleScariness} type="text">Scariness</input> */}
         </form>
     );
 }
