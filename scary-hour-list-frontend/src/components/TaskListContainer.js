@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import TaskListItem from "./TaskListItem"
 function TaskListContainer({currentUser, tasks}){
 
+const [timer, setTimer] = useState(0)
 
 
     return (
@@ -15,7 +16,7 @@ function TaskListContainer({currentUser, tasks}){
             </tr>
            </thead>
             <tbody>
-             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} />)}
+             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} timer={timer} setTimer={setTimer}/>)}
              </tbody>
              </table>
         </div>

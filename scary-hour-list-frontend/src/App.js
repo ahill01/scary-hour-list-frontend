@@ -45,7 +45,6 @@ function App() {
     <Header/>
     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
     <NewUserForm onAddUser={onAddUser}/>
-    <Timer></Timer>
     <TaskListContainer currentUser={currentUser} tasks={tasks}/>
     <Scoreboard/>
     </div>
