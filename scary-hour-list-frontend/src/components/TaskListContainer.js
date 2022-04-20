@@ -12,6 +12,9 @@ function TaskListContainer({currentUser, tasks}){
                 <th> Estimated Time </th>
                 <th> Scariness </th>
                 <th> Timer </th>
+                <th> Finished </th>
+                <th> Edit Task </th>
+                <th> Delete Task </th>
             </tr>
            </thead>
             <tbody>
