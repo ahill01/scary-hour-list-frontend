@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
       setTasks(currentUser.tasks)
   }, [currentUser])
-  
+
   function onAddTask(){
     fetch(`http://localhost:9292/users/${currentUser.id}`)
     .then(res => res.json())
