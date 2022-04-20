@@ -1,7 +1,6 @@
 import React from "react"
 import TaskListItem from "./TaskListItem"
-function TaskListContainer({currentUser, tasks}){
-
+function TaskListContainer({currentUser, tasks, setTasks}){
 
     return (
         <div className="taskList">
@@ -13,12 +12,11 @@ function TaskListContainer({currentUser, tasks}){
                 <th>{"Scariness"}</th>
                 <th>{"Timer"}</th>
                 <th>{"Finished"}</th>
-                <th>{"Edit Task"}</th>
                 <th>{"Delete Task"}</th>
             </tr>
            </thead>
             <tbody>
-             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time}/>)}
+             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} tasks={tasks} setTasks={setTasks}/>)}
              </tbody>
              </table>
         </div>

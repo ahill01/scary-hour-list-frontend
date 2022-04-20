@@ -45,8 +45,8 @@ function App() {
     <Header/>
     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
     <NewUserForm onAddUser={onAddUser}/>
-    <TaskListContainer currentUser={currentUser} tasks={tasks}/>
-    <Scoreboard/>
+    <TaskListContainer currentUser={currentUser} tasks={tasks} setTasks={setTasks}/>
+    <Scoreboard />
     </div>
   );
 }

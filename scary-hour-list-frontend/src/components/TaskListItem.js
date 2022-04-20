@@ -1,29 +1,25 @@
 import React, {useState, useEffect} from "react"
 import Timer from "./Timer"
 
-function TaskListItem({id, name, estimatedTime, scariness}){
+function TaskListItem({id, name, estimatedTime, scariness, tasks, setTasks}){
 
 const [timer, setTimer] = useState(0)
 const [finished, setFinished] = useState(false);
-const [edited, setEdited] = useState(false);
-const [deleted, setDeleted] = useState(false);
+// const [deleted, setDeleted] = useState(false);
 
     function finishedClick(){
         console.log("finishedClick called")
         setFinished(!finished)
     }
 
+    // function deletedClick(){
+    //     console.log("deletedClick called")
+    //     setDeleted(!deleted);
+    // }
+
     useEffect(()=>{
-        handleFinished()
+        handleFinished()  
     },[finished])
-
-    function editedClick(){
-        setEdited(!edited);
-    }
-
-    function deletedClick(){
-        setDeleted(!deleted);
-    }
 
     function handleFinished(){
         console.log("called handleFinished")
@@ -48,34 +44,19 @@ const [deleted, setDeleted] = useState(false);
         });
     }
     }
-    // function handleEdited(event){
-    //     event.preventDefault();
-    //     fetch(`http://localhost:9292/tasks/${id}`, {
-    //         method: "PATCH",
-    //         headers: {  "Content-Type": "application/json",
-    //                     Accept: "application/json",
-    //                 },
-    //         body: JSON.stringify({
-    //             name: name,
-    //             estimated_time: estimatedTime,
-    //             scariness: scariness,
-    //         }),
-    //     })
-    //     .then((res) => res.json())
-    //     .then((task) => console.log("Edited!"));
-    // }
 
-    // function handleDeleted(event){
-    //     event.preventDefault();
-    //     fetch(`http://localhost:9292/tasks/${id}`, {
-    //         method: "DELETE",
-    //         headers: {  "Content-Type": "application/json",
-    //                     Accept: "application/json",
-    //                 },
-    //     })
-    //     .then((res) => res.json())
-    //     .then((task) => console.log("Deleted!"));   
-    // }
+    function handleDeleted(){
+        fetch(`http://localhost:9292/tasks/${id}`, {
+            method: "DELETE",
+            headers: {  "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+        })
+        .then((res) => res.json())
+        .then((task) => {setTasks(tasks => tasks.filter(task => task.id !== id))
+        console.log(`deleted:${task.deleted}`)
+        }); 
+    }
 
     return( 
     <tr>
@@ -87,16 +68,11 @@ const [deleted, setDeleted] = useState(false);
         (<button onClick={finishedClick} className="NewContent">
           Made it!
         </button>):(<button onClick={finishedClick} className="NewContent">Not yet...</button>)}</td>
-        <td>{edited? (
-        <button onClick={editedClick} className="NewContent">
-            Edited
-        </button>)
-        : (<button onClick={editedClick} className="NewContent">Edit</button>)}</td>
-        <td>{deleted? (
-        <button onClick={deletedClick} className="NewContent">
-          Deleted
-        </button>)
-        : (<button onClick={deletedClick} className="NewContent">Delete</button>)}</td>
+        <td>
+        <button onClick={handleDeleted} className="NewContent">
+          Delete
+        </button>
+       </td>
         </tr>    
     );
 }
