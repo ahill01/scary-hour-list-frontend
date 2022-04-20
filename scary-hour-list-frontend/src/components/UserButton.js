@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 
 function UserButton({userId, username, setCurrentUser}){
+
 function handleClick(e){
     fetch(`http://localhost:9292/users/${userId}`)
     .then(res => res.json())
