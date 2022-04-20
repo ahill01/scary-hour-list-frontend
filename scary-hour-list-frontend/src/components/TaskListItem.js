@@ -1,7 +1,9 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import Timer from "./Timer"
 
-function TaskListItem({id, name, estimatedTime, scariness, timer, setTimer}){
+function TaskListItem({id, name, estimatedTime, scariness}){
+
+const [timer, setTimer] = useState(0)
 
     return(
     <tr>
