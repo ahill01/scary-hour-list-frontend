@@ -7,6 +7,7 @@ import NewTaskForm from "./components/NewTaskForm"
 import Scoreboard from "./components/Scoreboard"
 import Timer from "./components/Timer"
 import TaskListContainer from "./components/TaskListContainer";
+import LogInWindow from "./components/LogInWindow";
 
 function App() {
   const [users, setUsers] = useState([])
@@ -24,6 +25,7 @@ function App() {
   useEffect(() => {
       setTasks(currentUser.tasks)
   }, [currentUser])
+
   function onAddTask(){
     fetch(`http://localhost:9292/users/${currentUser.id}`)
     .then(res => res.json())
@@ -42,7 +44,8 @@ function App() {
 
   return (
     <div className="App">
-    <Header/>
+    <Header userName={currentUser.name}/>
+    <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
     <NewUserForm onAddUser={onAddUser}/>
     <TaskListContainer currentUser={currentUser} tasks={tasks} setTasks={setTasks}/>
