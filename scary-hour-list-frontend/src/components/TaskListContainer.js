@@ -8,17 +8,17 @@ function TaskListContainer({currentUser, tasks}){
            <table className="taskTable">
             <thead>
             <tr>
-                <th> Task </th>
-                <th> Estimated Time </th>
-                <th> Scariness </th>
-                <th> Timer </th>
-                <th> Finished </th>
-                <th> Edit Task </th>
-                <th> Delete Task </th>
+                <th>{"Task"}</th>
+                <th>{"Estimated Time"}</th>
+                <th>{"Scariness"}</th>
+                <th>{"Timer"}</th>
+                <th>{"Finished"}</th>
+                <th>{"Edit Task"}</th>
+                <th>{"Delete Task"}</th>
             </tr>
            </thead>
             <tbody>
-             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness}/>)}
+             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time}/>)}
              </tbody>
              </table>
         </div>

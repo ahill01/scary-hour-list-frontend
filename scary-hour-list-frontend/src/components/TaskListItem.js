@@ -9,8 +9,13 @@ const [edited, setEdited] = useState(false);
 const [deleted, setDeleted] = useState(false);
 
     function finishedClick(){
-        setFinished(!finished);
+        console.log("finishedClick called")
+        setFinished(!finished)
     }
+
+    useEffect(()=>{
+        handleFinished()
+    },[finished])
 
     function editedClick(){
         setEdited(!edited);
@@ -20,8 +25,10 @@ const [deleted, setDeleted] = useState(false);
         setDeleted(!deleted);
     }
 
-    function handleFinished(event){
-        event.preventDefault();
+    function handleFinished(){
+        console.log("called handleFinished")
+        if(finished) {
+        console.log("doing patch")
         fetch(`http://localhost:9292/tasks/${id}`, {
             method: "PATCH",
             headers: {  "Content-Type": "application/json",
@@ -30,13 +37,16 @@ const [deleted, setDeleted] = useState(false);
             body: JSON.stringify({
                 finished: true,
                 actual_time: timer,
+                finished_time: Date.now()
             }),
         })
         .then((res) => res.json())
         .then((task) => {
+            setFinished(task.finished)
             console.log(`finished:${task.finished}`)
             console.log(`actual_time: ${task.actual_time}`)
         });
+    }
     }
     // function handleEdited(event){
     //     event.preventDefault();
@@ -69,33 +79,25 @@ const [deleted, setDeleted] = useState(false);
 
     return( 
     <tr>
-        <td> {name} </td>
-        <td> {estimatedTime}</td>
-        <td> {scariness} </td>
+        <td>{name}</td>
+        <td>{estimatedTime}</td>
+        <td>{scariness}</td>
         <td><Timer timer={timer} setTimer={setTimer}/></td>
-        {/* <td> <input type="checkbox" onChange={handlePatch} checked={finished}/> </td>    */}
-        <td>
-            {finished? (
-        <button onClick={finishedClick} className="NewContent">
+        <td>{finished ? 
+        (<button onClick={finishedClick} className="NewContent">
           Made it!
-        </button>)
-        : (<button onClick={finishedClick} className="NewContent">Not yet...</button>)}
-            </td>
-            <td>
-            {edited? (
+        </button>):(<button onClick={finishedClick} className="NewContent">Not yet...</button>)}</td>
+        <td>{edited? (
         <button onClick={editedClick} className="NewContent">
             Edited
         </button>)
-        : (<button onClick={editedClick} className="NewContent">Edit</button>)}
-        </td>
-            <td>
-            {deleted? (
+        : (<button onClick={editedClick} className="NewContent">Edit</button>)}</td>
+        <td>{deleted? (
         <button onClick={deletedClick} className="NewContent">
           Deleted
         </button>)
-        : (<button onClick={deletedClick} className="NewContent">Delete</button>)}
-        </td>
-    </tr>    
+        : (<button onClick={deletedClick} className="NewContent">Delete</button>)}</td>
+        </tr>    
     );
 }
 
