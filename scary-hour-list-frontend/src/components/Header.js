@@ -1,9 +1,12 @@
 import React from "react";
 
-function Header() {
+function Header(userName) {
+
+  console.log("name: " + userName)
+
   return (
     <div className="image">
-      <p className="header">Welcome to Your Scary Hour 😨</p>
+      <h1 className="header">{`Welcome to Your Scary Hour 😨 ${userName}`}</h1>
     </div>
   );
 }
