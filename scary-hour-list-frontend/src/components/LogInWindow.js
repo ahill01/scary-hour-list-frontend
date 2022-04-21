@@ -15,6 +15,7 @@ function handleChange(e){
         console.log(foundUser)
         if(foundUser) {
             setCurrentUser(foundUser)
+            
         } else {
             window.alert("Account not found. Please create an account to login")
         }
