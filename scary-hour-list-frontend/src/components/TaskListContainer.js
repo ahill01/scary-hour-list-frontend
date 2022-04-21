@@ -1,17 +1,19 @@
 import React from "react"
 import TaskListItem from "./TaskListItem"
 import NewTaskForm from "./NewTaskForm"
-function TaskListContainer({currentUser, tasks, setTasks}){
+
+function TaskListContainer({currentUser, tasks, setTasks, onAddTask}){
 
     return (
         <div className="taskList">
-            <NewTaskForm/>
+            <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
+            <h1>TASKS</h1>
            <table className="taskTable">
             <thead>
             <tr>
                 <th>{"Task"}</th>
-                <th>{"Estimated Time"}</th>
                 <th>{"Scariness"}</th>
+                <th>{"Estimated Time"}</th>
                 <th>{"Timer"}</th>
                 <th>{"Finished"}</th>
                 <th>{"Delete Task"}</th>
