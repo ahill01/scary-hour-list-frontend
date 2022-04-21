@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 function Nav() {
 
   return (
-    <div className="Nav">
+    <div className="nav">
       <header>
       <nav>
-        <ul className="nav">
-        <Link to='/'>
+        <ul>
+        <Link className="navitem" to='/'>
             Home
           </Link>
           <br/>
-          <Link to="./incompleted">
+          <Link className="navitem" to="/incompleted">
           Task List
           </Link>
           <br/>
-           <Link to='./completed'>
+           <Link className="navitem" to='/completed'>
            Finished Tasks
           </Link>
         </ul>

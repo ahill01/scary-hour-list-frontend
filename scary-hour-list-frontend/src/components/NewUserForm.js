@@ -27,11 +27,10 @@ function NewUserForm({onAddUser}) {
   return (
     <form className="NewUserForm" onSubmit={handleSubmit}>
       <h2>New User</h2>
-      <input className="NewContent" onChange={handleUserName} type="text" placeholder="user name"/>
+      <input className="NewContent" onChange={handleUserName} type="text" placeholder="username"/>
       <button className="NewContent" type="submit">Add New User</button>
     </form>
   );
 }
 
 export default NewUserForm;
-

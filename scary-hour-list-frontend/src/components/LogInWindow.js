@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import UserButton from "./UserButton";
 import NewUserForm from "./NewUserForm"
 function LogInWindow({users, setCurrentUser}){
 const [username, setUsername] = useState("")
@@ -24,8 +23,8 @@ function handleChange(e){
     <div className="login">
         <form>
             <h2>Log In</h2>
-            <input type="text" placeholder="username" onChange={handleChange}></input>
-            <button type="submit" onClick={handleLogIn}>Log Me In!</button>
+            <input className="NewContent" type="text" placeholder="username" onChange={handleChange}></input>
+            <button className="NewContent" type="submit" onClick={handleLogIn}>Log Me In!</button>
         </form>
         <NewUserForm/>
     </div>

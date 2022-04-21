@@ -11,11 +11,6 @@ const [isFinished, setIsFinished] = useState(false);
         setIsFinished(!isFinished)
     }
 
-    // function deletedClick(){
-    //     console.log("deletedClick called")
-    //     setDeleted(!deleted);
-    // }
-
     useEffect(()=>{
         handleFinished()  
     },[finished])

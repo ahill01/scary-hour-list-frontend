@@ -129,9 +129,11 @@
 }
 
 .login{
-  font-size: 35px;
+  font-size: 25px;
   font-family: 'Averia Serif Libre', fantasy;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .userButton{
@@ -151,5 +153,21 @@
 }
 
 .userButton:hover {
+  background-color: rgb(163, 148, 148);
+}
+
+.nav{
+  font-size: 25px;
+  font-family: 'Averia Serif Libre', fantasy;
+  color: white;
+}
+
+.navitem{
+  font-size: 25px;
+  font-family: 'Averia Serif Libre', fantasy;
+  color: rgb(99, 213, 29);
+  cursor: pointer;
+}
+.navitem:hover {
   background-color: rgb(163, 148, 148);
 }
