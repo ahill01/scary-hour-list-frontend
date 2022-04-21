@@ -15,7 +15,7 @@ const[unfinishedTasks,setUnfinishedTasks]=useState([])
     return (
         <div className="taskList">
             <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
-            <h1>TASKS</h1>
+            <h1 className="primary">TASKS</h1>
            <table className="taskTable">
             <thead>
             <tr>

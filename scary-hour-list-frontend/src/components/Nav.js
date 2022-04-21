@@ -9,26 +9,24 @@ function Nav({currentUser, setCurrentUser}) {
   }
 
   return (
-    <div className="Nav">
+    <div className="nav">
       <header>
       <nav>
-
-       <Link to='/' onClick={signOut}>
+      <button>
+       <Link to='/' onClick={signOut} className="navitem">
             {currentUser.name ? `Sign Out` : `Log In`}
           </Link>
-
-          <br/>
-
-          <Link to="/unfinished">
+      </button>
+      <button>
+          <Link to="/unfinished" className="navitem">
           Task List
           </Link>
-
-          <br/>
-
-           <Link to='/finished'>
+      </button>
+      <button>
+           <Link to='/finished' className="navitem">
            Finished Tasks
           </Link>
-
+      </button>
       </nav>
       </header>
     </div>
@@ -36,4 +34,3 @@ function Nav({currentUser, setCurrentUser}) {
 }
 
 export default Nav;
-

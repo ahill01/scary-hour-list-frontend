@@ -26,9 +26,9 @@ function handleChange(e){
     return(
     <div className="login">
         <form>
-            <h2>Log In</h2>
-            <input type="text" placeholder="username" onChange={handleChange}></input>
-            <button type="submit" onClick={handleLogIn}>Log Me In!</button>
+            <h2 className="primary">Log In</h2>
+            <input className="NewContent" type="text" placeholder="username" onChange={handleChange}></input>
+            <button className="NewContent" type="submit" onClick={handleLogIn}>Log Me In!</button>
         </form>
         <NewUserForm/>
     </div>

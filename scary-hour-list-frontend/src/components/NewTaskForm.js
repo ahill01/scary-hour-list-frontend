@@ -60,13 +60,12 @@ function NewTaskForm({currentUser, onAddTask}) {
         }
     }
     return (
-        <form className="NewTaskForm" onSubmit={handleSubmit}>
-            <h2>New Task</h2>
-            
+        <form className="primary" onSubmit={handleSubmit}>
+            <h2 className="primary">New Task</h2>
             <input className="NewContent" onChange={handleTaskName} type="text" placeholder="task name" />
-            <input className="NewContent" onChange={handleEstimatedTime} type="number" min="1" name="hour" placeholder="estimated time (hour)" />
-            <input className="NewContent" onChange={handleEstimatedTime} type="number" min="1" name="min" placeholder="estimated time (min)" />
-            <input className="NewContent" onChange={handleEstimatedTime} type="number" min="1" name="sec" placeholder="estimated time (sec)" />
+            <input className="NewContent" onChange={handleEstimatedTime} type="number" min="0" name="hour" placeholder="estimated time (hour)" />
+            <input className="NewContent" onChange={handleEstimatedTime} type="number" min="0" name="min" placeholder="estimated time (min)" />
+            <input className="NewContent" onChange={handleEstimatedTime} type="number" min="0" name="sec" placeholder="estimated time (sec)" />
             <select className="NewContent" onChange={handleScariness}>
                 <option>scariness</option>
                 <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
@@ -76,6 +75,5 @@ function NewTaskForm({currentUser, onAddTask}) {
         </form>
     );
 }
-
 
 export default NewTaskForm;
