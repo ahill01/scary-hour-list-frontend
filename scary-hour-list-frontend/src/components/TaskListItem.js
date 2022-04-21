@@ -58,12 +58,21 @@ const [isFinished, setIsFinished] = useState(false);
         console.log(`deleted:${task.deleted}`)
         }); 
     }
+
+    const formatTime = (time) => {
+        const getSeconds = `0${(time % 60)}`.slice(-2)
+        const minutes = `${Math.floor(time / 60)}`
+        const getMinutes = `0${minutes % 60}`.slice(-2)
+        const getHours = `0${Math.floor(time / 3600)}`.slice(-2)
+    
+        return `${getHours} : ${getMinutes} : ${getSeconds}`
+      }
     
     return( 
     <tr>
         <td>{name}</td>
         <td>{scariness}</td>
-        <td>{estimatedTime}</td>
+        <td>{formatTime(estimatedTime)}</td>
         <td><Timer timer={timer} setTimer={setTimer}/></td>
         <td>{(isFinished || finished)? 
         (<button onClick={finishedClick} className="NewContent">

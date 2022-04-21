@@ -19,13 +19,13 @@ function Nav({currentUser, setCurrentUser}) {
 
           <br/>
 
-          <Link to="/incompleted">
+          <Link to="/unfinished">
           Task List
           </Link>
 
           <br/>
 
-           <Link to='/completed'>
+           <Link to='/finished'>
            Finished Tasks
           </Link>
 

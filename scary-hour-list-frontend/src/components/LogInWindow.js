@@ -17,7 +17,7 @@ function handleChange(e){
         console.log(foundUser)
         if(foundUser) {
             setCurrentUser(foundUser)
-            navigate("/incompleted")
+            navigate("/unfinished")
         } else {
             window.alert("Account not found. Please create an account to login")
         }

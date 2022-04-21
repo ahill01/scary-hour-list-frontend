@@ -50,9 +50,9 @@ function App() {
 
         <Route path="/" element={<LogInWindow users={users} setCurrentUser={setCurrentUser}/>}/>
        
-        <Route path="/incompleted" element={<TaskListContainer currentUser={currentUser} tasks={tasks} onAddTask={onAddTask} setTasks={setTasks}/>}/>
+        <Route path="/unfinished" element={<TaskListContainer currentUser={currentUser} tasks={tasks} onAddTask={onAddTask} setTasks={setTasks}/>}/>
 
-        <Route path="/completed" element={ <FinishedTaskListContainer currentUser={currentUser} tasks={tasks}/>}/>
+        <Route path="/finished" element={ <FinishedTaskListContainer currentUser={currentUser} tasks={tasks}/>}/>
 
       </Routes>
       </div>
