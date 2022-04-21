@@ -42,13 +42,23 @@ function App() {
     })
   }
 
+  function finishedTasks(tasks){
+    const finishedTasks = tasks.filter(task => task.finished===true)
+    return finishedTasks
+  }
+
+  function unfinishedTasks(tasks){
+    const unfinishedTasks = tasks.filter(task => task.finished===false)
+    return unfinishedTasks
+  }
+
   return (
     <div className="App">
     <Header userName={currentUser.name}/>
     <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
-    <NewUserForm onAddUser={onAddUser}/>
-    <TaskListContainer currentUser={currentUser} tasks={tasks}/>
+    <TaskListContainer currentUser={currentUser} tasks={unfinishedTasks(tasks)}/>
+    <TaskListContainer currentUser={currentUser} tasks={finishedTasks(tasks)}/>
     <Scoreboard/>
     </div>
   );

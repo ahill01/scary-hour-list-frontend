@@ -1,16 +1,16 @@
 import React, {useState, useEffect} from "react"
 import Timer from "./Timer"
 
-function TaskListItem({id, name, estimatedTime, scariness}){
+function TaskListItem({id, name, estimatedTime, scariness, finished}){
 
 const [timer, setTimer] = useState(0)
-const [finished, setFinished] = useState(false);
+const [isFinished, setIsFinished] = useState(false);
 const [edited, setEdited] = useState(false);
 const [deleted, setDeleted] = useState(false);
 
     function finishedClick(){
         console.log("finishedClick called")
-        setFinished(!finished)
+        setIsFinished(!isFinished)
     }
 
     useEffect(()=>{
@@ -27,7 +27,7 @@ const [deleted, setDeleted] = useState(false);
 
     function handleFinished(){
         console.log("called handleFinished")
-        if(finished) {
+        if(isFinished) {
         console.log("doing patch")
         fetch(`http://localhost:9292/tasks/${id}`, {
             method: "PATCH",
@@ -42,7 +42,7 @@ const [deleted, setDeleted] = useState(false);
         })
         .then((res) => res.json())
         .then((task) => {
-            setFinished(task.finished)
+            setIsFinished(task.finished)
             console.log(`finished:${task.finished}`)
             console.log(`actual_time: ${task.actual_time}`)
         });
@@ -83,7 +83,7 @@ const [deleted, setDeleted] = useState(false);
         <td>{estimatedTime}</td>
         <td>{scariness}</td>
         <td><Timer timer={timer} setTimer={setTimer}/></td>
-        <td>{finished ? 
+        <td>{(isFinished || finished)? 
         (<button onClick={finishedClick} className="NewContent">
           Made it!
         </button>):(<button onClick={finishedClick} className="NewContent">Not yet...</button>)}</td>

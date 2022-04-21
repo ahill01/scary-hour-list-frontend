@@ -18,7 +18,7 @@ function TaskListContainer({currentUser, tasks}){
             </tr>
            </thead>
             <tbody>
-             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time}/>)}
+             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} finished={task.finished}/>)}
              </tbody>
              </table>
         </div>
