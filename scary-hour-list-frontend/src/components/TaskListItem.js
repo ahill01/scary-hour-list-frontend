@@ -11,9 +11,14 @@ const [isFinished, setIsFinished] = useState(false);
         setIsFinished(!isFinished)
     }
 
+    // function deletedClick(){
+    //     console.log("deletedClick called")
+    //     setDeleted(!deleted);
+    // }
+
     useEffect(()=>{
         handleFinished()  
-    },[finished])
+    },[isFinished])
 
     function handleFinished(){
         console.log("called handleFinished")
@@ -55,8 +60,8 @@ const [isFinished, setIsFinished] = useState(false);
     return( 
     <tr>
         <td>{name}</td>
-        <td>{estimatedTime}</td>
         <td>{scariness}</td>
+        <td>{estimatedTime}</td>
         <td><Timer timer={timer} setTimer={setTimer}/></td>
         <td>{(isFinished || finished)? 
         (<button onClick={finishedClick} className="NewContent">

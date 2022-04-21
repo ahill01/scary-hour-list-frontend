@@ -25,10 +25,10 @@ function NewUserForm({onAddUser}) {
   }
   
   return (
-    <form className="NewUserForm" onSubmit={handleSubmit}>
-      <h2>New User</h2>
+    <form className="primary" onSubmit={handleSubmit}>
+      <h2 className="primary">New User</h2>
       <input className="NewContent" onChange={handleUserName} type="text" placeholder="username"/>
-      <button className="NewContent" type="submit">Add New User</button>
+      <button className="NewContent" type="submit">Sign Me Up!</button>
     </form>
   );
 }

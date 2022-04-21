@@ -4,14 +4,12 @@ function Header({userName}) {
 
   console.log("name: " + userName)
 
-function handleHomePage(){
-    window.location.href= `http://localhost:3000/`
-  }
 
   return (
     <div className="image">
-      <ul onClick={handleHomePage} className="header"> Welcome to {userName}'s Scary Hour 😨
-      </ul>
+      <h1 className="header"> {userName ? `Welcome to ${userName}'s Scary Hour 😨` : `Welcome to YOUR Scary Hour`}
+      </h1>
+    
     </div>
   );
 }

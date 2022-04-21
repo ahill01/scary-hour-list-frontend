@@ -6,19 +6,23 @@ function Nav() {
     <div className="nav">
       <header>
       <nav>
-        <ul>
-        <Link className="navitem" to='/'>
+
+       <Link className="navitem" to='/'>
             Home
           </Link>
+
           <br/>
+
           <Link className="navitem" to="/incompleted">
           Task List
           </Link>
+
           <br/>
+
            <Link className="navitem" to='/completed'>
            Finished Tasks
           </Link>
-        </ul>
+
       </nav>
       </header>
     </div>
@@ -26,4 +30,3 @@ function Nav() {
 }
 
 export default Nav;
-

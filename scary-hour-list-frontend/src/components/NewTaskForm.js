@@ -41,9 +41,8 @@ function NewTaskForm({currentUser, onAddTask}) {
     }
 
     return (
-        <form className="NewTaskForm" onSubmit={handleSubmit}>
-            <h2>New Task</h2>
-            
+        <form className="primary" onSubmit={handleSubmit}>
+            <h2 className="primary">New Task</h2>
             <input className="NewContent" onChange={handleTaskName} type="text" placeholder="task name" />
             <input className="NewContent" onChange={handleEstimatedTime} type="number" min="1" placeholder="estimated time (min)" />
             <select className="NewContent" onChange={handleScariness}>
