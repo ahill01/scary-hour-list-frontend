@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from "react"
 import UserButton from "./UserButton";
 import NewUserForm from "./NewUserForm"
+import {useNavigate} from "react-router-dom"
+
 function LogInWindow({users, setCurrentUser}){
 const [username, setUsername] = useState("")
-    
+let navigate = useNavigate()
+
 function handleChange(e){
         console.log("calling handleChange")
        setUsername(e.target.value)
@@ -15,7 +18,7 @@ function handleChange(e){
         console.log(foundUser)
         if(foundUser) {
             setCurrentUser(foundUser)
-            
+            navigate("/incompleted")
         } else {
             window.alert("Account not found. Please create an account to login")
         }

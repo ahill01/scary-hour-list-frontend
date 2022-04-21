@@ -1,9 +1,11 @@
 import React from "react"
 import TaskListItem from "./TaskListItem"
+import NewTaskForm from "./NewTaskForm"
 function TaskListContainer({currentUser, tasks, setTasks}){
 
     return (
         <div className="taskList">
+            <NewTaskForm/>
            <table className="taskTable">
             <thead>
             <tr>

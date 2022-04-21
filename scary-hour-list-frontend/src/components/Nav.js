@@ -6,19 +6,23 @@ function Nav() {
     <div className="Nav">
       <header>
       <nav>
-        <ul className="nav">
-        <Link to='/'>
+
+       <Link to='/'>
             Home
           </Link>
+
           <br/>
-          <Link to="./incompleted">
+
+          <Link to="/incompleted">
           Task List
           </Link>
+
           <br/>
-           <Link to='./completed'>
+
+           <Link to='/completed'>
            Finished Tasks
           </Link>
-        </ul>
+
       </nav>
       </header>
     </div>

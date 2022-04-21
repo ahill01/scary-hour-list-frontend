@@ -9,19 +9,18 @@ import Timer from "./components/Timer"
 import TaskListContainer from "./components/TaskListContainer";
 import LogInWindow from "./components/LogInWindow";
 import Nav from './components/Nav';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
   const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState({tasks:[]})
   const [tasks, setTasks] = useState([])
-
+  
   useEffect(() => {
     fetch("http://localhost:9292/users")
     .then(res => res.json())
     .then(usersArr => {
-      setUsers(usersArr)
-      setCurrentUser(usersArr[0])})
+      setUsers(usersArr)})
   },[])
 
   useEffect(() => {
@@ -60,21 +59,15 @@ function App() {
       <div className="App"> 
       <Header userName={currentUser.name}/>
       <Nav />
-      <Switch>
-        <Route path="/">
-        <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
-        </Route>  
+      <Routes>
 
-        <Route path="/incompleted">
-        <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
-         <TaskListContainer currentUser={currentUser} tasks={unfinishedTasks(tasks)}/>
-        </Route>
+        <Route path="/" element={<LogInWindow users={users} setCurrentUser={setCurrentUser}/>}/>
+       
+        <Route path="/incompleted" element={<TaskListContainer currentUser={currentUser} tasks={unfinishedTasks(tasks)}/>}/>
 
-        <Route path="/completed">
-        <TaskListContainer currentUser={currentUser} tasks={finishedTasks(tasks)}/>
-          </Route> 
+        <Route path="/completed" element={ <TaskListContainer currentUser={currentUser} tasks={finishedTasks(tasks)}/>}/>
 
-      </Switch>
+      </Routes>
       </div>
     </Router>
   )}
