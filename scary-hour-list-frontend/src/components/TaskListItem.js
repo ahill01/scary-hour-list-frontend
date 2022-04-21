@@ -57,7 +57,7 @@ const [finished, setFinished] = useState(false);
         console.log(`deleted:${task.deleted}`)
         }); 
     }
-
+    
     return( 
     <tr>
         <td>{name}</td>

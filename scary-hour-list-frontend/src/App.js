@@ -8,6 +8,8 @@ import Scoreboard from "./components/Scoreboard"
 import Timer from "./components/Timer"
 import TaskListContainer from "./components/TaskListContainer";
 import LogInWindow from "./components/LogInWindow";
+import Nav from './components/Nav';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   const [users, setUsers] = useState([])
@@ -42,16 +44,32 @@ function App() {
     })
   }
 
+//   return (
+//     <div className="App">
+//     <Header userName={currentUser.name} />
+//     <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
+//     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
+//     <NewUserForm onAddUser={onAddUser}/>
+//     <TaskListContainer currentUser={currentUser} tasks={tasks} setTasks={setTasks}/>
+//     <Scoreboard />
+//     </div>
+//   );
+// }
+
   return (
-    <div className="App">
-    <Header userName={currentUser.name}/>
-    <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
-    <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
-    <NewUserForm onAddUser={onAddUser}/>
-    <TaskListContainer currentUser={currentUser} tasks={tasks} setTasks={setTasks}/>
-    <Scoreboard />
-    </div>
+    <Router>
+      <div className="App"> 
+      <Header/>
+      <Nav />
+      <Switch>
+        <Route path="/">
+          <LogInWindow/>
+        </Route>  
+        <Route path="/task-list" component={TaskListContainer} />
+        <Route path="/new-task" component={NewTaskForm} />
+      </Switch>
+      </div>
+    </Router>
   );
 }
-
 export default App;

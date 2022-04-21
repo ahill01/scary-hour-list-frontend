@@ -21,7 +21,6 @@ function Timer({timer, setTimer}){
       setBttnClass("red")
     }
 
-
     function handleClick(){
         if(isActive){
             handlePause()
