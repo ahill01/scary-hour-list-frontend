@@ -21,7 +21,7 @@ function FinishedTaskListContainer({currentUser}){
                 </tr>
                </thead>
                 <tbody>
-                 {finishedTasks.map((task) => <FinishedTaskItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} actualTime={task.actualTime}/>)}
+                 {currentUser.tasks.map((task) => <FinishedTaskItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} actualTime={task.actualTime}/>)}
                  </tbody>
                  </table>
             </div>
