@@ -1,12 +1,18 @@
 import React, {useEffect, useState} from "react"
 import FinishedTaskItem from "./FinishedTaskItem"
 
-function FinishedTaskListContainer({currentUser}){
+function FinishedTaskListContainer({currentUser, tasks}){
+const [finishedTasks, setFinishedTasks]=useState([])
+
+useEffect(()=>{
+    setFinishedTasks(finished(tasks))
+}
+,[tasks])
 
     function finished(tasks){
-        const finishedTasks = tasks.filter(task => task.finished===true)
-        return finishedTasks
+       return  tasks.filter(task => task.finished===true)
       }
+
 
         return (
             <div className="taskList">
@@ -21,7 +27,7 @@ function FinishedTaskListContainer({currentUser}){
                 </tr>
                </thead>
                 <tbody>
-                 {currentUser.tasks.map((task) => <FinishedTaskItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} actualTime={task.actual_time}/>)}
+                 {finishedTasks.map((task) => <FinishedTaskItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} actualTime={task.actual_time}/>)}
                  </tbody>
                  </table>
             </div>

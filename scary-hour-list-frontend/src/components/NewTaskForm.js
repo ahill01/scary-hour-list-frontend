@@ -27,7 +27,7 @@ function NewTaskForm({currentUser, onAddTask}) {
             finished: false,
             created_time: Date.now(),
         };
-
+        if(currentUser.name){
         fetch("http://localhost:9292/tasks", {
             method: "POST",
             headers: {
@@ -38,8 +38,10 @@ function NewTaskForm({currentUser, onAddTask}) {
         })
             .then((res) => res.json())
             .then((newTask) => onAddTask());
+        } else {
+            window.alert("Please log in or create an account to continue!")
+        }
     }
-
     return (
         <form className="NewTaskForm" onSubmit={handleSubmit}>
             <h2>New Task</h2>
@@ -55,5 +57,6 @@ function NewTaskForm({currentUser, onAddTask}) {
         </form>
     );
 }
+
 
 export default NewTaskForm;

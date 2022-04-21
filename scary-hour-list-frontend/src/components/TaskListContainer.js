@@ -3,11 +3,10 @@ import TaskListItem from "./TaskListItem"
 import NewTaskForm from "./NewTaskForm"
 
 function TaskListContainer({currentUser, tasks, setTasks, onAddTask}){
-const [unfinishedTasks, setUnfinishedTasks] = useState([])
+const[unfinishedTasks,setUnfinishedTasks]=useState([])
 
     function unfinished(tasks){
-        const unfinishedTasks = tasks.filter(task => task.finished===false)
-        return unfinishedTasks
+        return tasks.filter(task => task.finished===false)
     }
     useEffect(() => {
         setUnfinishedTasks(unfinished(tasks))

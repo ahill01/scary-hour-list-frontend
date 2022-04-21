@@ -21,6 +21,7 @@ function App() {
   },[])
 
   useEffect(() => {
+      console.log("current user updated so i am too")
       setTasks(currentUser.tasks)
   }, [currentUser])
 
@@ -51,7 +52,7 @@ function App() {
        
         <Route path="/incompleted" element={<TaskListContainer currentUser={currentUser} tasks={tasks} onAddTask={onAddTask} setTasks={setTasks}/>}/>
 
-        <Route path="/completed" element={ <FinishedTaskListContainer currentUser={currentUser}/>}/>
+        <Route path="/completed" element={ <FinishedTaskListContainer currentUser={currentUser} tasks={tasks}/>}/>
 
       </Routes>
       </div>
