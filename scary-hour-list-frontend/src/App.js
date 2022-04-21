@@ -44,32 +44,38 @@ function App() {
     })
   }
 
-//   return (
-//     <div className="App">
-//     <Header userName={currentUser.name} />
-//     <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
-//     <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
-//     <NewUserForm onAddUser={onAddUser}/>
-//     <TaskListContainer currentUser={currentUser} tasks={tasks} setTasks={setTasks}/>
-//     <Scoreboard />
-//     </div>
-//   );
-// }
+  
+  function finishedTasks(tasks){
+    const finishedTasks = tasks.filter(task => task.finished===true)
+    return finishedTasks
+  }
+
+  function unfinishedTasks(tasks){
+    const unfinishedTasks = tasks.filter(task => task.finished===false)
+    return unfinishedTasks
+  }
 
   return (
     <Router>
       <div className="App"> 
-      <Header/>
+      <Header userName={currentUser.name}/>
       <Nav />
       <Switch>
         <Route path="/">
-          <LogInWindow/>
+        <LogInWindow users={users} setCurrentUser={setCurrentUser}/>
         </Route>  
-        <Route path="/task-list" component={TaskListContainer} />
-        <Route path="/new-task" component={NewTaskForm} />
+
+        <Route path="/incompleted">
+        <NewTaskForm currentUser={currentUser} onAddTask={onAddTask}/>
+         <TaskListContainer currentUser={currentUser} tasks={unfinishedTasks(tasks)}/>
+        </Route>
+
+        <Route path="/completed">
+        <TaskListContainer currentUser={currentUser} tasks={finishedTasks(tasks)}/>
+          </Route> 
+
       </Switch>
       </div>
     </Router>
-  );
-}
+  )}
 export default App;

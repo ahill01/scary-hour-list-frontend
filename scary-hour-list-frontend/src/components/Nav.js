@@ -5,19 +5,18 @@ function Nav() {
   return (
     <div className="Nav">
       <header>
-      <h1>
-        Scary Hour
-      </h1>
       <nav>
         <ul className="nav">
         <Link to='/'>
-            <li>Main</li>
+            Home
           </Link>
-          <Link to='/task-list'>
-            <li>Task List</li>
+          <br/>
+          <Link to="./incompleted">
+          Task List
           </Link>
-           <Link to='/new-task'>
-            <li>New Task</li>
+          <br/>
+           <Link to='./completed'>
+           Finished Tasks
           </Link>
         </ul>
       </nav>
