@@ -25,7 +25,7 @@ function NewTaskForm({currentUser, onAddTask}) {
             estimated_time: estimatedTime,
             scariness: scariness,
             finished: false,
-            created_time: Date.now,
+            created_time: Date.now(),
         };
 
         fetch("http://localhost:9292/tasks", {

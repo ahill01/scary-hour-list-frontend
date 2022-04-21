@@ -40,12 +40,6 @@ function App() {
     })
   }
 
-
-  function unfinishedTasks(tasks){
-    const unfinishedTasks = tasks.filter(task => task.finished===false)
-    return unfinishedTasks
-  }
-
   return (
     <Router>
       <div className="App"> 
@@ -55,7 +49,7 @@ function App() {
 
         <Route path="/" element={<LogInWindow users={users} setCurrentUser={setCurrentUser}/>}/>
        
-        <Route path="/incompleted" element={<TaskListContainer currentUser={currentUser} tasks={unfinishedTasks(tasks)} onAddTask={onAddTask}/>}/>
+        <Route path="/incompleted" element={<TaskListContainer currentUser={currentUser} tasks={tasks} onAddTask={onAddTask} setTasks={setTasks}/>}/>
 
         <Route path="/completed" element={ <FinishedTaskListContainer currentUser={currentUser}/>}/>
 

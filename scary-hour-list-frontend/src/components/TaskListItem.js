@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Timer from "./Timer"
 
-function TaskListItem({id, name, estimatedTime, scariness, finished, setTasks}){
+function TaskListItem({id, name, estimatedTime, scariness, finished, setTasks, tasks}){
 
 const [timer, setTimer] = useState(0)
 const [isFinished, setIsFinished] = useState(false);
@@ -11,10 +11,14 @@ const [isFinished, setIsFinished] = useState(false);
         setIsFinished(!isFinished)
     }
 
-    // function deletedClick(){
-    //     console.log("deletedClick called")
-    //     setDeleted(!deleted);
-    // }
+    function updateLocalTasks(finishedTask){
+        const index = tasks.findIndex(task => task.id===id)
+        const updatedTasks = [...tasks]
+        updatedTasks[index][`finished`] = finishedTask.finished
+        updatedTasks[index][`actual_time`] = finishedTask.actual_time
+        updatedTasks[index][`finished_time`] = finishedTask.actual_time
+        setTasks(updatedTasks)
+    }
 
     useEffect(()=>{
         handleFinished()  
@@ -37,9 +41,7 @@ const [isFinished, setIsFinished] = useState(false);
         })
         .then((res) => res.json())
         .then((task) => {
-            setIsFinished(task.finished)
-            console.log(`finished:${task.finished}`)
-            console.log(`actual_time: ${task.actual_time}`)
+            updateLocalTasks(task)
         });
     }
     }

@@ -1,8 +1,17 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import TaskListItem from "./TaskListItem"
 import NewTaskForm from "./NewTaskForm"
 
 function TaskListContainer({currentUser, tasks, setTasks, onAddTask}){
+const [unfinishedTasks, setUnfinishedTasks] = useState([])
+
+    function unfinished(tasks){
+        const unfinishedTasks = tasks.filter(task => task.finished===false)
+        return unfinishedTasks
+    }
+    useEffect(() => {
+        setUnfinishedTasks(unfinished(tasks))
+      },[tasks])
 
     return (
         <div className="taskList">
@@ -20,7 +29,7 @@ function TaskListContainer({currentUser, tasks, setTasks, onAddTask}){
             </tr>
            </thead>
             <tbody>
-             {tasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} finished={task.finished} setTasks={setTasks}/>)}
+             {unfinishedTasks.map((task) => <TaskListItem key = {task.id} id = {task.id} name={task.name} scariness={task.scariness} estimatedTime ={task.estimated_time} finished={task.finished} setTasks={setTasks} tasks={tasks}/>)}
              </tbody>
              </table>
         </div>
