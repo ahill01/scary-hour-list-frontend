@@ -50,7 +50,7 @@ function App() {
     <Router>
       <div className="App"> 
       <Header userName={currentUser.name}/>
-      <Nav />
+      <Nav currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <Routes>
 
         <Route path="/" element={<LogInWindow users={users} setCurrentUser={setCurrentUser}/>}/>
