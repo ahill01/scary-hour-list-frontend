@@ -25,10 +25,10 @@ function handleChange(e){
 
     return(
     <div className="login">
-        <form>
+        <form className="primary">
             <h2 className="primary">Log In</h2>
             <input className="NewContent" type="text" placeholder="username" onChange={handleChange}></input>
-            <button className="NewContent" type="submit" onClick={handleLogIn}>Log Me In!</button>
+            <button className="NewContent" type="submit" onClick={handleLogIn}>Log Me In</button>
         </form>
         <NewUserForm/>
     </div>

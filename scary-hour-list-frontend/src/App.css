@@ -1,48 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 .App {
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
-}
-
-.image{
   background-image: url("https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724__480.jpg");
   height: 400px;
   width: auto;
   background-size: 100% 120%;
 }
 
+/* .image{
+  background-image: url("https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724__480.jpg");
+  height: 400px;
+  width: auto;
+  background-size: 100% 120%;
+} */
+
 .header {
   font-family: 'Averia Serif Libre', fantasy;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   width: auto;
   height: 60px;
   background-color: #282c34;
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
-  padding: 0px 20px;
-  cursor: pointer;
-  text-align: center;
 }
 
 .primary {
-  font-size: 35px;
-  font-family: 'Averia Serif Libre', fantasy;
-  flex-direction: column;
+  font-size: 30px;
+  font-family: 'Averia Serif Libre', fantasy; 
   align-items: center;
   justify-content: center;
-  color: white;
-}
+  color: rgb(56, 48, 48);
+  border-radius: 10px;
 
-/* .NewUserForm {
-  font-size: 25px;
-  font-family: 'Averia Serif Libre', fantasy;
-  align-items: center;
-  justify-content: center;
-  color: white;
-} */
+  padding: 5px;
+  margin: 20px;
+}
 
 .taskTable {
   font-size: 20px;
@@ -54,7 +49,7 @@
 }
 
 .taskTable td, .taskTable th {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(167, 162, 162);
   padding: 8px;
 }
 
@@ -65,85 +60,63 @@
   text-align: left;
   background-color: #515660;
   color: white;
-  width: auto;
 }
 
-.taskTable tr:hover {background-color: rgb(163, 148, 148);}
-
-/* .taskList {
-  font-size: 25px;
-  font-family: 'Averia Serif Libre', fantasy;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-} */
+.taskTable tr:hover {background-color: rgb(145, 131, 131);
+  }
 
 .NewContent {
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Averia Serif Libre', fantasy;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: rgb(4, 4, 4);
+  color: rgb(28, 27, 27);
   font-weight: bold;
   cursor: pointer;
 }
 
-.NewContent:hover {
-  color: rgb(163, 148, 148);
-}
 
-.scoreboard {
-  font-size: 25px;
-  font-family: 'Averia Serif Libre', fantasy;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
+.NewContent:hover {
+  color: rgb(62, 57, 57);
+  
 }
 
 .login{
-  font-size: 25px;
+  font-size: 5px;
   font-family: 'Averia Serif Libre', fantasy;
   align-items: center;
   justify-content: center;
-  color: white;
-}
-
-/* .userButton{
-  font-size: 35px;
-  font-family: 'Averia Serif Libre', fantasy;
-  background-color: rgb(58, 56, 56);
-  color: white;
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-weight: bold;
-} */
-
-.userButton:hover {
-  background-color: rgb(163, 148, 148);
-}
-
-.nav{
-  font-size: 25px;
-  font-family: 'Averia Serif Libre', fantasy;
-  color: white;
 }
 
 .navitem{
   font-size: 25px;
   font-family: 'Averia Serif Libre', fantasy;
-  color: rgb(99, 213, 29);
+  color: rgb(56, 218, 86);
+}
+
+.button{
+  background-color: rgb(63, 60, 60);
+  padding: 10px 30px;
+  margin: 15px 5px;
+  cursor: pointer;
+  border-radius: 35px;
+}
+
+.button:hover {box-shadow: inset 100px 0 0 0 #577885;}
+
+.timerRunning{
+  font-size: 20px;
+  font-family: 'Averia Serif Libre', fantasy;
+  align-items: center;
+  color: rgb(56, 218, 86);
+  font-weight: bold;
   cursor: pointer;
 }
-.navitem:hover {
-  background-color: rgb(163, 148, 148);
+
+.timerPause{
+  font-size: 20px;
+  font-family: 'Averia Serif Libre', fantasy;
+  align-items: center;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
 }

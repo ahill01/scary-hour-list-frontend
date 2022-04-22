@@ -2,7 +2,7 @@ import React, {useState, useRef} from "react"
 
 function Timer({timer, setTimer}){
     const [isActive, setIsActive] = useState(false)
-    const [bttnClass, setBttnClass]=useState("red")
+    const [bttnClass, setBttnClass]=useState("timerPause")
     const countRef = useRef(null)
   
     function handleStart(){
@@ -11,14 +11,14 @@ function Timer({timer, setTimer}){
       countRef.current = setInterval(() => {
           setTimer((timer) => timer+1)
       },1000)
-      setBttnClass("green")
+      setBttnClass("timerRunning")
     }
   
     function handlePause(){
       // Pause button logic here
       clearInterval(countRef.current)
       setIsActive(false)
-      setBttnClass("red")
+      setBttnClass("timerPause")
     }
 
     function handleClick(){
@@ -40,13 +40,7 @@ function Timer({timer, setTimer}){
 
     return(
         <div className="counter">
-            <style>{
-                `.red {color:red}
-                .green {color:green}`
-            }
-            </style>
-           <button onClick={handleClick} className={bttnClass}>{formatTime(timer)}</button>
-           
+           <button onClick={handleClick} className={bttnClass}>{formatTime(timer)}</button>     
         </div>
     )
 }

@@ -16,7 +16,7 @@ useEffect(()=>{
 
         return (
             <div className="taskList">
-                <h1 className="primary">FINISHED TASKS</h1>
+                <h1 className="primary">Finished Tasks</h1>
                <table className="taskTable">
                 <thead>
                 <tr>

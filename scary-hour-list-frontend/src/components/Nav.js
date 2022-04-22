@@ -12,19 +12,19 @@ function Nav({currentUser, setCurrentUser}) {
     <div className="nav">
       <header>
       <nav>
-      <button>
+      <button className="button">
        <Link to='/' onClick={signOut} className="navitem">
-            {currentUser.name ? `Sign Out` : `Log In`}
+            {currentUser.name ? `Sign out` : `Log in`}
           </Link>
       </button>
-      <button>
+      <button className="button">
           <Link to="/unfinished" className="navitem">
-          Task List
+          Tasks
           </Link>
       </button>
-      <button>
+      <button className="button">
            <Link to='/finished' className="navitem">
-           Finished Tasks
+           Finished
           </Link>
       </button>
       </nav>

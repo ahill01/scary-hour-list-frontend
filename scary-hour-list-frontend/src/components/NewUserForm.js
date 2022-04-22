@@ -26,9 +26,9 @@ function NewUserForm({onAddUser}) {
   
   return (
     <form className="primary" onSubmit={handleSubmit}>
-      <h2 className="primary">New User</h2>
+      <h2 className="primary">Sign Up</h2>
       <input className="NewContent" onChange={handleUserName} type="text" placeholder="username"/>
-      <button className="NewContent" type="submit">Sign Me Up!</button>
+      <button className="NewContent" type="submit">Sign Me Up</button>
     </form>
   );
 }
